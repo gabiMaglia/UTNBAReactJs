@@ -1,0 +1,69 @@
+
+.mainNosotros {
+    background-image: url(../../../assets/img/fondos/fondo.jpg);
+    background-position-x: 450px;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    text-align: left;
+    height: 100vh;
+  }
+  
+  .aboutUs {
+    z-index: -1;
+    width: 63%;
+    align-self: flex-start;
+    margin-top: 3rem;
+  
+  }
+  
+  .staff h2 {
+    z-index: -1;
+    margin-top: 1rem;
+    text-decoration: underline;
+  }
+  
+  .personas {
+    z-index: -1;
+    display: flex;
+  
+  }
+  
+  .persona {
+    z-index: -1;
+    border-radius: 0.3125rem;
+    width: 30%;
+    text-align: center;
+    padding: 1rem;
+    
+  }
+  
+  .persona img {
+    margin-bottom: 1.7rem;
+    border-radius: 50%;
+    max-width: 15%;
+    box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.7);
+  }
+  
+  .persona h5,
+  .persona h6 {
+    margin: 0;
+   
+    font-weight: normal;
+    color: black;
+  }
+  
+  .persona h5 {
+    font-size: 0.875rem;
+    margin-top: 0.3125rem;
+  }
+  
+  .persona h6 {
+    font-size: 0.75rem;
+    font-style: italic;
+  }
+  
+  .persona p {
+    margin-top: 1rem;
+    font-size: 0.6875rem;
+  }
+  

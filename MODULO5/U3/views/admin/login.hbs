@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+{{#if conocido}}
+    <p class="respuesta">Hola {{nombre}} ahora puedes ver tu nombre reflejado en el NavBar! <a href="/salir" style="color: white;">Salir</a></p>
+{{/if}}
+
+{{#unless conocido}}
+    <p  class="formulario">No te conozco, como te llamas?</p>
+    <form    action="/ingresar" method="post">
+        <input type="text" name="nombre"><button style="color: black;">Ingresar</button>
+    </form>
+{{/unless}}
+
+

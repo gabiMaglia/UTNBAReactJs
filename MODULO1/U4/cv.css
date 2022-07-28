@@ -1,0 +1,41 @@
+body {
+    
+    background-color: white;
+    margin-left: 1cm;
+}
+
+img {
+    float :left ;
+    width: 6cm;
+    height: 8cm;
+    margin-top: 3cm;
+    margin-left: 0.5cm;
+    margin-bottom: 2cm;
+    /* box-sizing: border-box; */
+}
+
+legend{
+    font-style: oblique;
+}
+
+
+
+#nombre{
+    border-style: groove;
+    float:right;
+    margin-right: 70%;
+    margin-top: 6.7%;
+}
+#personalInfo{
+   display: inline-block;
+    
+    margin-top: 1cm;
+    margin-left: 2%;
+
+}
+
+#personalData { 
+    position:absolute; 
+    margin-left: 1.4%;
+    margin-top: 6%;
+}

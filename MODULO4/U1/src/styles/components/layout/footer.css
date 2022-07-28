@@ -1,0 +1,33 @@
+footer {
+    grid-area: footer;
+    height: 10rem;
+    width: 100%;
+    background: url(../../../assets/img/fondos/footerx2.png) ;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    color: rgb(197, 186, 186);
+    padding: 0.5rem;
+  
+    position: fixed;
+    bottom: 0px;
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    opacity: 0.99;
+  }
+  
+  .icons {
+    display: flex;
+    gap: 19px;
+    margin-left: 2rem;
+    margin-right: 1rem;
+  }
+  .icons a {
+    font-size: 1.5rem;
+    color: whitesmoke;
+  }

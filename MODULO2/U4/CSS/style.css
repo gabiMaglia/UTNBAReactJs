@@ -1,0 +1,162 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    background-color: #292e33;
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+}
+
+
+.grid-container{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 0% 1fr 20rem;
+    grid-template-rows: 67px 1fr 8% ;
+    
+
+    grid-template-areas: 'header header menu' 
+                         'main main aside'
+                         'footer footer footer' ;
+    
+}
+
+@media screen and (max-width: 720px) {
+    .grid-container{
+    
+        grid-template-areas: 'header header'
+                             'menu menu'   
+                             'main main '
+                             'aside aside '
+                             'footer footer ' ;
+
+       grid-template-columns: auto;
+       grid-template-rows: 7% auto auto auto auto ;  
+        
+    }
+
+}
+
+
+
+
+.header{
+    grid-area: header;
+    border-bottom: 1px solid white;
+    
+  
+
+}
+
+#navBar {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+.menu{
+    grid-area: menu;
+    background-color: #212529;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    
+    display:flex;
+    flex-direction:row; 
+    justify-content: space-between;
+    align-items:center;
+    flex-wrap: wrap;
+
+    
+}
+
+#login button {
+    opacity: 0.7;  
+    
+}
+
+
+#login {
+    margin-top: -23px;
+}
+
+    .icons {
+        padding: 2%;
+        display:flex;
+    
+        gap: 19px;
+
+    }
+    .icons a{
+        font-size: 2rem;
+
+
+    }
+.main{
+    grid-area: main;
+    background-color:#212529;
+    margin: 0px;
+    /* margin-left: 0px; */
+    border: 1px solid wheat;
+    border-bottom: 2px solid white;
+}
+
+.main img{
+    max-height: 750px;
+    min-height: 47rem;
+  
+}
+.aside{
+    grid-area: aside;
+    background-color: #232527;
+   
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    border: 1px solid white;
+    
+    
+}
+
+.aside .card {
+    margin: 15px;
+    border-style: none;
+}
+
+.footer{
+    grid-area: footer; ;
+    background-color:#202223;   
+    width:1fr;
+    border-top: 1px solid white;
+}
+
+/* LOGIN BUTTON */
+
+.container {
+    min-width: 315px;        
+    background: #232529;       
+    border-radius: 20px;
+    z-index: 2;
+    color: #fff;
+    content: '';
+    border: solid 1px; 
+    padding: 0.8rem;
+}
+
+
+.dropdown-menu{
+    background-color: #003296;
+    padding: 0%;
+    border-radius: 25%;
+}
+
+.form-dropdown div {
+
+}
+
+#login button {
+width: auto;
+color:#fff !important;
+border: 0 !important;
+background: #003296 !important;
+}

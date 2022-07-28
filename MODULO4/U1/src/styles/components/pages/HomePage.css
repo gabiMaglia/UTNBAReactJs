@@ -1,0 +1,16 @@
+.mainIndex {
+    background-color: black;
+    height: 90vh;
+    z-index: -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    z-index: -1;
+}
+  .mainIndex img {
+    
+    width: 24rem;
+    margin-left: -1.1px;
+    
+  }

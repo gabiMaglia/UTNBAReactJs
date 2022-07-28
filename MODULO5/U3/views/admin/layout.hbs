@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/nav.css" />
+    
+  </head>
+  <body>
+    <header class="header">
+      <div class="holder centroheader">
+        <figure class="banner">
+          <h1>
+            <p class="logoText">
+              <span class="mainLogo">GIMNASIO CRANEO</span>
+            </p>
+          </h1>
+        </figure>
+
+        <div class="mmovil">
+          <i class="icon-menu"></i>
+        </div>
+
+        <nav class="nav">
+          <a href="/admin/login" style="text-decoration: none">
+            <button
+
+              class="button"
+              title="PanelAdmin"
+            >
+              Panel de Administrador
+            </button>
+          </a>
+
+          <a href="/admin/login" style="text-decoration: none">
+            <button  class="button" title="Usuario">
+              {{#unless nombre}}
+                Login
+              {{else}}
+               {{nombre}}
+              {{/unless}}
+            </button>
+          </a>
+
+        </nav>
+      </div>
+    </header>
+    <br />
+    {{{body}}}
+  </body>
+</html>

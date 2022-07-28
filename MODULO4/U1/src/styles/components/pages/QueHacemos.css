@@ -1,0 +1,9 @@
+.mainQueHacemos {
+    background-image: url(../../../assets/img/fondos/fondo.jpg); 
+    background-position-x: -32px;
+    background-color: black;
+    background-repeat: no-repeat;
+    z-index: auto;
+    height: 100vh;
+  }
+  

@@ -1,0 +1,35 @@
+header {
+    grid-area: header;
+    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-image: url(../../../assets/img/fondos/header.png);
+    background-size: cover;
+
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+   
+    width: 100%;
+    
+    background-repeat: no-repeat;
+    height: 11rem;
+    position: fixed;
+    font-family: Roboto-Medium;
+    z-index: 1;
+    padding-right: 140px;
+
+    opacity: 0.99;
+    
+  }
+  
+  header img {
+    
+    position: absolute;
+    margin-left: 20px;
+    min-width: 50px;
+
+  }
+
+  

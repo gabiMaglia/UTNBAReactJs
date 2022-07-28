@@ -1,0 +1,38 @@
+body {
+	color: #000;
+	background: #7b5a28;	
+}
+
+
+#contenedor {
+	background: #17b712;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+	background: #CC3910;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+ul {
+	list-style-type:none;
+    padding: auto;
+}
+a {
+	color:#eaeba8;
+	text-decoration: none;
+    cursor: pointer;
+}
+section {
+	background: #F1F2C0;
+    width: 100%;
+    margin: 0%;
+    border-bottom: 1px solid black;
+  
+}
+aside {
+	background: #CCC59E;
+    width: 100%;
+}

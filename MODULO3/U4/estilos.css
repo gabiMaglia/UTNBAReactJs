@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(/img/sky.jpg);
+  background-size: cover;
+  text-shadow: 0 0 3px white;
+}
+h1 {
+  margin: 30px 22px;
+}
+section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 70px;
+}
+
+h2 {
+  margin-bottom: 40px;
+  margin-left: 12px;
+  font-weight: 600;
+}
+
+
+
+.sectionContainer {
+  width: 430px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  margin: 23px;
+  box-shadow: 0 0 5px black;
+  padding: 30px 6px;
+  background-color: rgba(0, 0, 0, 0.255);
+}
+
+.backgroundGenerator {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.backgroundGenerator p {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 120px;
+  height: 120px;
+  box-shadow: 0 0 5px black;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.bg1 {
+  background-image: url(/img/flats.jpg);
+}
+.bg2 {
+  background-image: url(/img/mountains.jpg);
+  color: white;
+}
+.bg3 {
+  background-image: url(/img/moon.jpg);
+}
+
+.charCounter {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea{
+  text-shadow: 0ch 0ch 12px white;
+  background: none;
+  font-size: 15px;
+  padding: 10px 5px;
+  box-shadow: 0 0 9px;
+  margin-top: 16px;
+  margin-left: 8px;
+  width: 400px;
+  height: 120px;
+  resize: none;
+}
+
+.textArea {
+  
+  word-wrap: break-word;
+}
+
+.charCounterResult {
+  align-self: flex-end;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.alumnosAprobados {
+  display: flex;
+  flex-direction: column;
+}
+
+.tablaAlumnos {
+
+  margin-bottom: 10px;
+
+}
+
+.alumnosAprobadosBTN {
+  margin-left: 7px;
+  width: 400px;
+}
