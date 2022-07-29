@@ -1,0 +1,134 @@
+.banner{
+    display: block;
+    margin: 1px;
+    padding: 0;
+}
+
+.header{
+    z-index: 2;
+    position: sticky;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    max-height: 83px;;
+    padding: 10px;
+    background: var(--blackTrans);
+    border-bottom: 1px solid var(--redLogo);
+}
+
+.centroheader{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.mmovil{
+    display: none;
+}
+
+
+.logoText{
+	text-transform: uppercase;
+	letter-spacing: .5em;
+	display: inline-block;
+	padding:0;  
+	width: 40em;
+} 
+
+.mainLogo {
+    font-size: 31px;
+    font-family: "Octin College Bold";
+    letter-spacing: 0.18em;
+    
+   ; /* delicia de iluminacion */
+    text-shadow: 0 0 100px var(--white);
+
+/* Clip Background Image */
+
+	  background: url(../images/animated-text-fill.png) repeat-y;
+	  -webkit-background-clip: text;
+	  background-clip: text;
+
+/* Animate Background Image */
+
+	  -webkit-text-fill-color: transparent;
+	  animation: aitf 80s linear infinite;
+
+/* Activate hardware acceleration for smoother animations */
+
+	  transform: translate3d(0,10,0);
+	  backface-visibility: hidden;
+
+  }
+
+
+/* Animate Background Image */
+
+@keyframes aitf {
+	0% { background-position: 0% 50%; }
+	100% { background-position: 100% 50%; }
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    text-shadow: 0 0 80px rgba(255,255,255,.5);
+}
+
+.button{
+    text-shadow: 0 0 1px var(--black);
+    display: block;
+    margin-right: 6px;
+    letter-spacing: 0.1em;
+    color:  var(--black);
+    padding: 5px 6px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.button:hover{
+    transition: 0.3s;
+    text-shadow: 0 0 1.3px var(--white);
+
+    color: var(--redLogo);
+}
+.active{
+    color: var(--red)
+}
+
+
+
+/**************************************************************/
+/***************1024p******************************************/
+/**************************************************************/
+/* 
+@media only screen and (max-whidth: 1024px){
+
+
+} */
+
+/**************************************************************/
+/***************800px******************************************/
+/**************************************************************/
+/* 
+@media only screen and (max-whidth: 800px){
+
+
+} */
+
+/**************************************************************/
+/***************480px******************************************/
+/**************************************************************/
+
+/* @media only screen and (max-whidth: 480px){
+
+
+} */
+
+
+
+
