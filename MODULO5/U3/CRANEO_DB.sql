@@ -65,7 +65,7 @@ CREATE TABLE `socios_db` (
 --
 
 CREATE TABLE `usuarios_db` (
-  `id_socio` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `usuario` varchar(250) NOT NULL COMMENT 'usuario de acceso',
   `password` varchar(250) NOT NULL COMMENT 'clave de acceso'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

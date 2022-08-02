@@ -47,7 +47,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //el use de session siempre antes de las rutas
 app.use(session({
-  secret: 'pajero',
+  secret: 'dadjalkklsd',
   cookie: {maxAge: null},
   resave: false,
   saveUninitialized: true
