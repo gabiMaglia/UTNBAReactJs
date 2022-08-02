@@ -35,7 +35,19 @@
             </button>
           </a>
 
-          <a href="/admin/login" style="text-decoration: none">
+          {{#if usuario}}
+           <a href="/admin/panelPrincipal" style="text-decoration: none">
+             <button  class="button" title="Usuario">
+               {{usuario}}        
+            </button>
+         {{else}}
+          <a href="/admin/login" style="text-decoration: none"></a>
+            <button  class="button" title="Usuario">
+               Login
+            </button>
+          {{/if}} 
+
+          {{!-- <a href="/admin/login" style="text-decoration: none">
             <button  class="button" title="Usuario">
               {{#unless usuario}}
                 Login
@@ -43,7 +55,7 @@
                {{usuario}}
               {{/unless}}
             </button>
-          </a>
+          </a> --}}
 
         </nav>
       </div>
