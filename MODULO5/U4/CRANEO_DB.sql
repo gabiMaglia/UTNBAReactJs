@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 28-07-2022 a las 19:43:53
+-- Tiempo de generación: 02-08-2022 a las 03:17:30
 -- Versión del servidor: 5.7.34
 -- Versión de PHP: 7.4.21
 
@@ -65,7 +65,7 @@ CREATE TABLE `socios_db` (
 --
 
 CREATE TABLE `usuarios_db` (
-  `id_socio` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `usuario` varchar(250) NOT NULL COMMENT 'usuario de acceso',
   `password` varchar(250) NOT NULL COMMENT 'clave de acceso'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -74,8 +74,9 @@ CREATE TABLE `usuarios_db` (
 -- Volcado de datos para la tabla `usuarios_db`
 --
 
-INSERT INTO `usuarios_db` (`id_socio`, `usuario`, `password`) VALUES
-(1, 'gabrielsk', '2854fbdbda22c512812ec0fd06577951');
+INSERT INTO `usuarios_db` (`id_usuario`, `usuario`, `password`) VALUES
+(1, 'gabrielsk', 'dde250bbe10295dcd5268cc2b536b015'),
+(3, 'admin', '21232f297a57a5a743894a0e4a801fc3');
 
 --
 -- Índices para tablas volcadas
@@ -97,7 +98,7 @@ ALTER TABLE `socios_db`
 -- Indices de la tabla `usuarios_db`
 --
 ALTER TABLE `usuarios_db`
-  ADD PRIMARY KEY (`id_socio`);
+  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -107,7 +108,7 @@ ALTER TABLE `usuarios_db`
 -- AUTO_INCREMENT de la tabla `usuarios_db`
 --
 ALTER TABLE `usuarios_db`
-  MODIFY `id_socio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
