@@ -8,7 +8,22 @@
   font-style: normal;
   font-weight: normal;
 }
+html{
+  min-height: 100%;
+  position: relative;
+  margin: 0px;
+  
+  padding: 0px;
+}
 body {
+  height: 100%;
+  margin-bottom: 100px;
+  background-color: black !important;     
+  display: grid;
+  grid-template-areas: 'header'
+                        'main'
+                        'footer';
+  
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -24,18 +39,18 @@ body {
   --grisOscuro: #333333;
   --gris      : #666666; 
   --whatsapp  : #39b54a;
-  --verdeClaro: #6cbc6f;
-
-
-   
- background:var(--black);
-
- max-width: 1248px;
- margin: auto;
+  --verdeClaro: #6cbc6f; 
     
 }
-      
-    
+
+.container{
+  min-height: 69vh;
+}
+
+.holder{
+  max-width: 1248px;
+  margin: auto
+}
 
 *{
   color: var(--black);
@@ -47,41 +62,61 @@ label{
 p{
   color: var(--white);
   font-family: "Octin College Bold";
-  font-size: 16px;
+  font-size: 16px !important;
   margin: 6px;
 }
 
 h1{
   color: var(--white);
   font-family: "Octin College Bold";
-  font-size: 24px;
+  font-size: 24px !important;
   margin: 6px;
 }
 
 h2{
   color: var(--white);
-  font-size: 20px;
+  font-size: 20px !important;
   margin: 6px;
 }
 
 h3{
   color: var(--white);
-  font-size: 18px;
+  font-size: 18px !important;
   margin: 6px;
 }
 
 
 
-.formulario{
- margin-top: 100px;
-
- margin: 5px
-}
-
-.respuesta {
-  margin-top: 100px;
-  display: flex;
-  justify-content: space-between;
-}
 
 
+/**************************************************************/
+/***************1024p******************************************/
+/**************************************************************/
+/* 
+@media only screen and (max-width: 1024px){
+
+
+} */
+
+/**************************************************************/
+/***************800px******************************************/
+/**************************************************************/
+
+@media only screen and (max-width: 800px){
+  .holder{
+    max-width: none;
+    margin: 0
+  }
+
+} 
+
+
+
+/**************************************************************/
+/***************480px******************************************/
+/**************************************************************/
+
+/* @media only screen and (max-width: 480px){
+
+
+} */ 

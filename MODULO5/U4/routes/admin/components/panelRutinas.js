@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 
 router.get("/", (req, res, next) => {
-  res.render("admin/panelPrincipal", {
+  res.render("admin/components/panelRutinas", {
     layout: "admin/layout",
     usuario: req.session.nombre
   });

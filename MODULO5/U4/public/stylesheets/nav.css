@@ -1,27 +1,24 @@
-.banner{
-    display: block;
-    margin: 1px;
-    padding: 0;
-}
 
 .header{
-    z-index: 2;
     position: sticky;
+    grid-area: header;
+    margin-bottom: 2rem;
     left: 0px;
     top: 0px;
-    width: 100%;
-    max-height: 83px;;
+    width: 100vw;
+    min-height: 10vh;
     padding: 10px;
     background: var(--blackTrans);
-    border-bottom: 1px solid var(--redLogo);
+    z-index: 1;
+    /* border-bottom: 1px solid var(--redLogo); */
 }
 
+.banner{
+    display: block;
+}
 .centroheader{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
+
+    padding-top: 20px;
     
 }
 .mmovil{
@@ -31,10 +28,10 @@
 
 .logoText{
 	text-transform: uppercase;
-	letter-spacing: .5em;
+	
 	display: inline-block;
-	padding:0;  
-	width: 40em;
+	
+     
 } 
 
 .mainLogo {
@@ -72,14 +69,26 @@
 }
 
 .nav{
+
+    text-shadow: 0 0 80px rgba(255,255,255,.5);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
-    text-shadow: 0 0 80px rgba(255,255,255,.5);
+   
+}
+
+.buttons{
+    display: flex;
+    gap: 10px;
+    margin-top: -35px;
+    color: black;
+    font-family: "Octin College Bold";
 }
 
 .button{
+    letter-spacing: 0.18em;
     text-shadow: 0 0 1px var(--black);
     display: block;
     margin-right: 6px;
@@ -99,6 +108,8 @@
 .active{
     color: var(--red)
 }
+
+
 
 
 
