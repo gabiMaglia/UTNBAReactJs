@@ -2,7 +2,7 @@
     <div class="container" style="margin: 50px auto;">
         <div class="row">
             <div class="col-6 offset-3">
-                <h4>Modificar Horario</h4>
+                <h4 class="text-light">Modificar Horario</h4>
                 <form action="/admin/horarios/modificar" method="post" class="holder">
                     <div style="text-align: right ;">
                         <!-- Atras Button -->
@@ -28,13 +28,13 @@
                             <input type="text" class="form-control" id="horas_dbcol" name="horarios_dbcol"
                                 value="{{horarioData.horarios_dbcol}}" placeholder="horarios" />
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mt-5">
                             <!-- Modificado por -->
                             <label for="observaciones" class="control-label">Modificado por</label>
                             <input type="text" class="form-control" id="modificado_por" name="modificado_por"
                                 value={{usuario}} readonly />
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mt-3">
                             <!-- Submit Button -->
                             <button type="submit" class="btn btn-danger">Cargar</button>
                         </div>

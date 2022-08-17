@@ -1,6 +1,5 @@
 <div class="container" style="margin: 50px auto;">
-  <div class="row">
-    <div class="col-6 offset-3">
+
       <h4>Modificar el alumno</h4>
       <form action="/admin/alumnos/modificar" method="post" class="holder">
 
@@ -81,14 +80,14 @@
           <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="Observaciones" />
         </div>
 
-        <div class="form-group">
+        <div class="form-group mt-5">
           <!-- Modificado por -->
           <label for="observaciones" class="control-label">Modificado por</label>
           <input type="text" class="form-control" id="modificado_por" name="modificado_por" value={{usuario}}
             readonly />
         </div>
 
-        <div class="form-group">
+        <div class="form-group mt-3">
           <!-- Submit Button -->
           <button type="submit" class="btn btn-danger">Modificar</button>
         </div>
@@ -98,7 +97,5 @@
         {{/if}}
 
       </form>
-    </div>
 
-  </div>
 </div>
