@@ -32,12 +32,14 @@ CREATE TABLE `alumnos_db` (
   `direccion` text,
   `fecha_inscripcion` text NOT NULL,
   `foto` text,
-  `horario` text NOT NULL,
+  `horario` varchar(80) NOT NULL,
   `observaciones` text,
   `agregado_por` text NOT NULL,
   `modificado_por` text,
+  `facebook` varchar(45) DEFAULT NULL,
+  `instagram` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_alumno`,`dni`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +48,7 @@ CREATE TABLE `alumnos_db` (
 
 LOCK TABLES `alumnos_db` WRITE;
 /*!40000 ALTER TABLE `alumnos_db` DISABLE KEYS */;
-INSERT INTO `alumnos_db` VALUES (1,'admin','almighty',2313123131,'god@god.com','0000000','Everywhere','','','Lunes,','','','gabrielsk'),(2,'Marina','Sancho',35999283,'lalallala@lalalla.com','45275293342','De los Arrollos 2021 Rosario/Centro','2021-03-16','','Lunes,','','','gabrielsk'),(3,'Gabriel Alejandro','Maglia',32758971,'gab.maglia@gmail.com','3417207863','Belgrano 231 Granadero Baigorria/Centro','2018-02-12','','15:30','godBoy','','');
+INSERT INTO `alumnos_db` VALUES (3,'Gabriel Alejandre','Maglia',32758971,'gab.maglia@gmail.com','3417207863','Belgrano 231 Granadero Baigorria/Centro','2018-02-12','','Martes-Jueves-Sabados/09:01-10:30','KDJSAKDJA','','admin',NULL,NULL),(4,'Fernandouyuikyhgu','Maglia',48654456464,'gab.maglia@gmail.com','4654654','Almafuerte 122 / Grdo Baigorria/Paraiso','1222-04-16',NULL,'Martes-Jueves-Sabados/14:00-15:31','LSLSLSLS','admin','admin',NULL,NULL);
 /*!40000 ALTER TABLE `alumnos_db` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -61,17 +63,17 @@ CREATE TABLE `docentes_db` (
   `id_docente` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
-  `dni` int NOT NULL,
-  `telefono` int DEFAULT NULL,
+  `dni` varchar(25) NOT NULL,
+  `telefono` varchar(25) DEFAULT NULL,
   `direccion` varchar(50) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `instagramAdd` varchar(50) DEFAULT NULL,
   `facebookAdd` varchar(50) DEFAULT NULL,
-  `horario` varchar(50) DEFAULT NULL,
+  `horario` varchar(150) DEFAULT NULL,
   `foto` mediumblob,
   `modificado_por` text,
   PRIMARY KEY (`id_docente`,`dni`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,7 +82,7 @@ CREATE TABLE `docentes_db` (
 
 LOCK TABLES `docentes_db` WRITE;
 /*!40000 ALTER TABLE `docentes_db` DISABLE KEYS */;
-INSERT INTO `docentes_db` VALUES (1,'Juan','Martinez',23212323,192831,'32131','djfksjfal@fkdsjl.comGFHF','YUYUIO','lala','18:00 19:00','','gabrielsk');
+INSERT INTO `docentes_db` VALUES (1,'Juan','Martinez','23212323','192831','32131','djfksjfal@fkdsjl.comGFHF','YUYUIO','lala','18:00 19:00','','gabrielsk'),(3,'Gabriel Alejandro','Maglia','32758971','3415875022','Belgrano 231 Granadero Baigorria/Centro','gab.maglia@gmail.com','/gaberiel_maglia','/gabrielsk','12:00-19:00',NULL,'admin'),(4,'Yfir','Fernandez','11545858','3413255698','Trapeon de la Juarca 2542, Bsa/CABA','arBni@gmail.com','/Yfir','/Yifir','10:00-15:00',NULL,NULL);
 /*!40000 ALTER TABLE `docentes_db` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,7 +99,7 @@ CREATE TABLE `horarios_db` (
   `horarios_dbcol` text NOT NULL,
   `modificado_por` text,
   PRIMARY KEY (`id_horario`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,7 +108,7 @@ CREATE TABLE `horarios_db` (
 
 LOCK TABLES `horarios_db` WRITE;
 /*!40000 ALTER TABLE `horarios_db` DISABLE KEYS */;
-INSERT INTO `horarios_db` VALUES (2,'Martes, Jueves y Sabados','10:30-12:00','admin'),(3,'Lunes, Miercoles y Viernes','12:00-13:30',''),(4,'Lunes, Miercoles y Viernes','13:30-14:00',''),(5,'Lunes, Miercoles y Viernes','14:00-15:30',''),(6,'Lunes, Miercoles y Viernes','15:30-17:00',''),(7,'Martes, Jueves y Sabados','09:00-10:30','admin'),(8,'Martes, Jueves y Sabados','10:30-12:00',''),(9,'Lunes, Miercoles y Viernes','12:36-13:30','admin'),(11,'Martes, Jueves y Sabados','14:00-15:30',''),(12,'Martes, Jueves y Sabados','15:30-17:00','');
+INSERT INTO `horarios_db` VALUES (1,'Lunes-Miercoles-Viernes','24:30-14:00',NULL),(3,'Lunes-Miercoles-Viernes','12:00-13:30',''),(4,'Lunes-Miercoles-Viernes','13:30-14:00',''),(5,'Lunes-Miercoles-Viernes','14:00-15:30',''),(6,'Lunes-Miercoles-Viernes','15:30-17:00',''),(7,'Martes-Jueves-Sabados','09:01-10:30','admin'),(8,'Martes-Jueves-Sabados','10:30-12:00',''),(9,'Lunes-Miercoles-Viernes','12:36-13:30','admin'),(11,'Martes-Jueves-Sabados','14:00-15:31','admin'),(12,'Martes-Jueves-Sabados','15:30-17:00','');
 /*!40000 ALTER TABLE `horarios_db` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,4 +147,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-17  1:12:11
+-- Dump completed on 2022-08-18  0:14:57

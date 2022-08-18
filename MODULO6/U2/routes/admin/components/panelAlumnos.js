@@ -15,15 +15,17 @@ router.get("/", async (req, res, next) => {
 router.get("/agregar", async (req, res, next) => {
   var horarios = await horariosModel.getHorarios();
   var arrayHorarios = [];
+  var alumno = true;
   for (const horario in horarios) {
     arrayHorarios.push(
-      horarios[horario].dias_dbcol + " " + horarios[horario].horarios_dbcol
+      horarios[horario].dias_dbcol + horarios[horario].horarios_dbcol
     );
   }
 
-  res.render("admin/components/agregarAlumno", {
+  res.render("admin/components/agregar", {
     layout: "admin/layout",
     usuario: req.session.nombre,
+    alumno,
     arrayHorarios,
   });
 });
@@ -31,18 +33,21 @@ router.get("/agregar", async (req, res, next) => {
 router.get("/modificar/:id_alumno", async (req, res, next) => {
   let id = req.params.id_alumno;
   let alumnoData = await alumnosModel.getAlumnosById(id);
+  let alumno = true;
 
   var horarios = await horariosModel.getHorarios();
   var arrayHorarios = [];
+
   for (const horario in horarios) {
     arrayHorarios.push(
-      horarios[horario].dias_dbcol + " " + horarios[horario].horarios_dbcol
+      horarios[horario].dias_dbcol + "/" + horarios[horario].horarios_dbcol
     );
   }
 
-  res.render("admin/components/modificarAlumno", {
+  res.render("admin/components/modificar", {
     layout: "admin/layout",
     usuario: req.session.nombre,
+    alumno,
     alumnoData,
     arrayHorarios,
   });
@@ -54,7 +59,21 @@ router.get("/eliminar/:id_alumno", async (req, res, next) => {
   res.redirect("/admin/alumnos");
 });
 
+router.get("/perfilPersonal/:id_alumno", async (req, res, next) => {
+  let id = req.params.id_alumno;
+  let alumnoData = await alumnosModel.getAlumnosById(id);
+  let alumno = true;
+
+  res.render("admin/components/perfilPersonal", {
+    layout: "admin/layout",
+    usuario: req.session.nombre,
+    alumnoData,
+    alumno,
+  });
+});
+
 router.post("/agregar", async (req, res, next) => {
+  let alumno = true;
   try {
     if (
       req.body.nombre != "" &&
@@ -64,18 +83,20 @@ router.post("/agregar", async (req, res, next) => {
       await alumnosModel.insertAlumno(req.body);
       res.redirect("/admin/alumnos");
     } else {
-      res.render("admin/components/agregarAlumno", {
+      res.render("admin/components/agregar", {
         layout: "admin/layout",
         usuario: req.session.nombre,
+        alumno,
         error: true,
         message: "Completa todos los campos obligatorios",
       });
     }
   } catch (error) {
     console.log(error);
-    res.render("admin/components/agregarAlumno", {
+    res.render("admin/components/agregar", {
       layout: "admin/layout",
       usuario: req.session.nombre,
+      alumno,
       error: true,
       message: "No se pudo cargar el registro",
     });
@@ -83,6 +104,8 @@ router.post("/agregar", async (req, res, next) => {
 });
 
 router.post("/modificar", async (req, res, next) => {
+  let alumno = true;
+
   try {
     let obj = {
       nombre: req.body.nombre,
@@ -96,15 +119,16 @@ router.post("/modificar", async (req, res, next) => {
       observaciones: req.body.observaciones,
       modificado_por: req.body.modificado_por,
     };
-
+    console.log(obj);
     await alumnosModel.modificarAlumnoById(obj, req.body.alumno_id);
     res.redirect("/admin/alumnos");
   } catch (error) {
     console.log(error);
 
-    res.render("admin/components/modificarAlumno", {
+    res.render("admin/components/modificar", {
       layout: "admin/layout",
       usuario: req.session.nombre,
+      alumno,
       error: true,
       message: "No se pudo modificar el registro",
     });

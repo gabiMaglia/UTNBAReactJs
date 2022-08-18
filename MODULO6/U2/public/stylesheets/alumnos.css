@@ -1,37 +1,34 @@
-#addBtn{
-    font-family: "Octin College Bold";
+#addBtn {
+  font-family: "Octin College Bold";
 }
 
 #thead {
-    background-color: var(--redLogo);
-    border: black;
-   padding-bottom: 15px;
-    
+  background-color: var(--redLogo);
+  border: black;
+  padding-bottom: 15px;
 }
 
-#tbody{
-    background-color:var(--blackTrans);
-    color: white;
-    border: none;
+#tbody {
+  background-color: var(--blackTrans);
+  color: white;
+  border: none;
 }
 
-tr:hover #tbody{
-    color: var(--black);
+tr:hover #tbody {
+  color: var(--black);
 }
 
 #head {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 30px;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
 
-#head div{
-    width: auto;
+#head div {
+  width: auto;
 }
 
-.btn{
-   color: white;
+.btn {
+  color: white;
 }
-

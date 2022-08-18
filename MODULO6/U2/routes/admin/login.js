@@ -10,19 +10,15 @@ router.get("/", function (req, res, next) {
 
 router.post("/", async (req, res, next) => {
   try {
-
     var user = req.body.usuario;
     var password = req.body.password;
     var data = await userModel.getUserByUsernameAndPassword(user, password);
     // console.log(data)
     if (data != undefined) {
-      
-      req.session.id_usuario = data.id_usuario
-      req.session.nombre = data.usuario
+      req.session.id_usuario = data.id_usuario;
+      req.session.nombre = data.usuario;
       res.redirect("/admin/panelPrincipal");
-
     } else {
-      
       res.render("admin/login", {
         layout: "admin/layout",
         error: true,
@@ -33,12 +29,11 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.get ('/logout' , function (req, res, next) {
+router.get("/logout", function (req, res, next) {
   req.session.destroy();
-  res.render ("admin/login", {
-    layout: "admin/layout"
+  res.render("admin/login", {
+    layout: "admin/layout",
   });
 });
-
 
 module.exports = router;

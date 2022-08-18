@@ -12,20 +12,36 @@ router.get("/", async function (req, res, next) {
 });
 
 router.get("/agregar", (req, res, next) => {
-  res.render("admin/components/agregarDocente", {
+  var docente = true;
+  res.render("admin/components/agregar", {
     layout: "admin/layout",
     usuario: req.session.nombre,
+    docente,
   });
 });
 
 router.get("/modificar/:id_docente", async (req, res, next) => {
   let id = req.params.id_docente;
   let docenteData = await docentesModel.getDocenteById(id);
+  let docente = true;
+  res.render("admin/components/modificar", {
+    layout: "admin/layout",
+    usuario: req.session.nombre,
+    docente,
+    docenteData,
+  });
+});
 
-  res.render("admin/components/modificarDocente", {
+router.get("/perfilPersonal/:id_docente", async (req, res, next) => {
+  let id = req.params.id_docente;
+  let docenteData = await docentesModel.getDocenteById(id);
+  let docente = true;
+  console.log(docenteData);
+  res.render("admin/components/perfilPersonal", {
     layout: "admin/layout",
     usuario: req.session.nombre,
     docenteData,
+    docente,
   });
 });
 
@@ -36,24 +52,27 @@ router.get("/eliminar/:id_docente", async (req, res, next) => {
 });
 
 router.post("/agregar", async (req, res, next) => {
+  var docente = true;
   try {
     if (req.body.nombre != "" && req.body.dni != "") {
       await docentesModel.insertDocente(req.body);
       console.log(req.body);
       res.redirect("/admin/docentes");
     } else {
-      res.render("admin/components/agregarDocente", {
+      res.render("admin/components/agregar", {
         layout: "admin/layout",
         usuario: req.session.nombre,
+        docente,
         error: true,
         message: "Completa todos los campos obligatorios",
       });
     }
   } catch (error) {
     console.log(error);
-    res.render("admin/components/agregarDocente", {
+    res.render("admin/components/agregar", {
       layout: "admin/layout",
       usuario: req.session.nombre,
+      docente,
       error: true,
       message: "No se pudo cargar el registro",
     });
@@ -61,6 +80,7 @@ router.post("/agregar", async (req, res, next) => {
 });
 
 router.post("/modificar", async (req, res, next) => {
+  let docente = true;
   try {
     let obj = {
       nombre: req.body.nombre,
@@ -82,10 +102,11 @@ router.post("/modificar", async (req, res, next) => {
   } catch (error) {
     console.log(error);
 
-    res.render("admin/components/modificarDocente", {
+    res.render("admin/components/modificar", {
       layout: "admin/layout",
       usuario: req.session.nombre,
       docenteData,
+      docente,
       error: true,
       message: "No se pudo modificar el registro",
     });

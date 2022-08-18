@@ -22,62 +22,59 @@
                         <tr>
                             <th class="table-light" id="tbody" scope="row">{{dias_dbcol}}</th>
                             <th class="table-light" id="tbody" scope="row">{{horarios_dbcol}}</th>
-                            <th class="table-light" id="tbody" scope="row">Cantidad de alumnos, aqui va la logica que cuenta cuantos alumnos estan asignados en cada rango horario</th>
+                            <th class="table-light" id="tbody" scope="row">Cantidad de alumnos, aqui va la logica que
+                                cuenta cuantos alumnos estan asignados en cada rango horario</th>
                             <td style="border: none;" class="text-center">
                                 <a href="/admin/horarios/modificar/{{id_horario}}" class=" btn btn-m btn-secondary">
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                                <a href="/admin/horarios/eliminar/{{id_horario}}" class="btn btn-m btn-secondary"><i class="fa fa-trash"></i></a>
+                                <a href="/admin/horarios/eliminar/{{id_horario}}" class="btn btn-m btn-secondary"><i
+                                        class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                         {{/each}}
                     </tbody>
 
                 </table>
-                
-                
-            
+
+
+
             </div>
         </div>
         <div class="row">
 
-                <form action="/admin/horarios/agregar" class="addForm" method="post">
-                    <div class=" form-group">
-                        <!-- Selector de dias -->
-                        <div class="col-1">
-                            <label for="dias_dbcol" class="control-label">Dias</label>
-                            <select class="drop" name="dias_dbcol">
-                                <option value="" selected>Selecciona..</option>
-                                <option value="Lunes, Miercoles y Viernes">Lunes, Miercoles y Viernes</option>
-                                <option value="Martes, Jueves y Sabados">Martes, Jueves y Sabados</option>
-                            </select>
-                        </div>
+            <form action="/admin/horarios/agregar" class="addForm" method="post">
+                <div class=" form-group">
+                    <!-- Selector de dias -->
+                    <div class="col-1">
+                        <label for="dias_dbcol" class="control-label">Dias</label>
+                        <select class="drop" name="dias_dbcol">
+                            <option value="" selected>Selecciona..</option>
+                            <option value="Lunes-Miercoles-Viernes">Lunes-Miercoles-Viernes</option>
+                            <option value="Martes-Jueves-Sabados">Martes-Jueves-Sabados</option>
+                        </select>
                     </div>
+                </div>
 
-                    
-                    <div class="form-group">
+
+                <div class="form-group">
                     <!-- Horario -->
-                        <label for="horarios_dbcol" class="control-label">Horario</label>
-                        <input
-                    type="text"
-                    class="form-control s"
-                    id="horarios"
-                    name="horarios_dbcol"
-                    placeholder="XX:XX-XX:XX"    
-                    />
+                    <label for="horarios_dbcol" class="control-label">Horario</label>
+                    <input type="text" class="form-control s" id="horarios" name="horarios_dbcol"
+                        placeholder="XX:XX-XX:XX" />
                     {{!-- <label for="desde">Desde</label>
                     <input id="desde" type="time">
-                    </div>    
-                    <label for="hasta">Hasta</label>
-                    <input id="hasta" type="time">
-                    --}}
-                    </div>     
-                    
-                    <div class="but col-7">
-                        <button type="submit" class="btn btn-danger"  > Cargar horario </button>
-                    </div>
-                </form>
+                </div>
+                <label for="hasta">Hasta</label>
+                <input id="hasta" type="time">
+                --}}
         </div>
+
+        <div class="but col-7">
+            <button type="submit" class="btn btn-danger"> Cargar horario </button>
+        </div>
+        </form>
+    </div>
     </div>
 
 </body>

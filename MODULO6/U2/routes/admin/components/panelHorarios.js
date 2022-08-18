@@ -14,9 +14,11 @@ router.get("/", async (req, res, next) => {
 router.get("/modificar/:id_horario", async (req, res, next) => {
   let id = req.params.id_horario;
   let horarioData = await horariosModel.getHorarioById(id);
+  let horario = true;
   console.log(horarioData);
-  res.render("admin/components/modificarHorario", {
+  res.render("admin/components/modificar", {
     layout: "admin/layout",
+    horario,
     usuario: req.session.nombre,
     horarioData,
   });
@@ -42,6 +44,7 @@ router.post("/agregar", async (req, res, next) => {
 });
 
 router.post("/modificar", async (req, res, next) => {
+  let horario = true;
   try {
     let obj = {
       dias_dbcol: req.body.dias_dbcol,
@@ -55,9 +58,10 @@ router.post("/modificar", async (req, res, next) => {
     res.redirect("/admin/horarios");
   } catch (error) {
     console.log(error);
-    res.render("admin/components/modificarHorario", {
+    res.render("admin/components/modificar", {
       layout: "admin/layout",
       usuario: req.session.nombre,
+      horario,
       error: true,
       message: "No se pudo modificar el registro",
     });
