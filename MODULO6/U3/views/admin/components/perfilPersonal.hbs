@@ -19,8 +19,7 @@
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center bg-dark">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-              class="rounded-circle img-fluid" style="width: 150px;" />
+           {{{pic}}}
             <h5 class="my-3">{{alumnoData.nombre}}</h5>
             <p class="text-muted mb-4">{{alumnoData.direccion}}</p>
             <div class="d-flex justify-content-center mb-2">
@@ -30,14 +29,17 @@
         <div class="card mb-4 mb-lg-0">
           <div class="card-body p-0 bg-dark">
             <ul class="list-group list-group-flush rounded-3">
+            
               <li class="list-group-item d-flex justify-content-between align-items-center p-3 bg-dark">
                 <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
-                <p class="mb-0">{{alumnoData.instagram}}</p>
+                <a class="link" href="https://www.instagram.com{{alumnoData.instagramAdd}}" target="_blank"> <p class="mb-0">{{alumnoData.instagramAdd}}</p></a>
               </li>
+            
               <li class="list-group-item d-flex justify-content-between align-items-center p-3 bg-dark">
                 <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
-                <p class="mb-0">{{alumnoData.facebook}}</p>
+                <a class="link" href="https://www.facebook.com{{alumnoData.facebookAdd}}" target="_blank"><p class="mb-0">{{alumnoData.facebookAdd}}</p></a>
               </li>
+            
             </ul>
           </div>
         </div>
@@ -201,8 +203,7 @@
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center bg-dark">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-              class="rounded-circle img-fluid" style="width: 150px;" />
+            {{{pic}}}
             <h5 class="my-3">{{docenteData.nombre}}</h5>
             <p class="text-muted mb-4">{{docenteData.direccion}}</p>
             <div class="d-flex justify-content-center mb-2">

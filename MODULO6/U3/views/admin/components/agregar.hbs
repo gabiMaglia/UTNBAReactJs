@@ -4,7 +4,7 @@
         <!-- Atras Button -->
         <a href="/admin/alumnos/"><button class="btn btn-danger">Atras</button></a>
     </div>
-    <form action="/admin/alumnos/agregar" method="post" class="holder">
+    <form action="/admin/alumnos/agregar" method="post" class="holder" enctype="multipart/form-data">
 
         <div class="form-group">
             <!-- Nombre -->
@@ -44,6 +44,17 @@
         </div>
 
         <div class="form-group">
+            <!-- Facebook -->
+            <label for="facebookAdd" class="control-label">Direccion de Facebook</label>
+            <input type="text" class="form-control" id="facebookAdd" name="facebookAdd" placeholder="/example" />
+        </div>
+
+        <div class="form-group">
+            <!-- instagram -->
+            <label for="instagramAdd" class="control-label">Direccion de instagram</label>
+            <input type="text" class="form-control" id="instagramAdd" name="instagramAdd" placeholder="/example" />
+        </div>
+        <div class="form-group">
             <!-- Dia de Ingreso -->
             <label for="fecha de inscripcion" class="control-label">Fecha de
                 Inscripcion</label>
@@ -58,15 +69,21 @@
                 {{#each arrayHorarios}}
                 <option value={{this}}>{{this}}</option>
                 {{/each}}
-
             </select>
         </div>
+            
 
         <div class="form-group">
             <!-- Observaciones -->
             <label for="observaciones" class="control-label">Observaciones</label>
             <input type="text" class="form-control" id="observaciones" name="observaciones"
                 placeholder="Observaciones" />
+        </div>
+
+        <div class="form-group">
+            <!-- Foto-->
+            <label for="picture" class="control-label">Foto</label>
+            <input type="file" class="form-control" id="foto" name="foto" />
         </div>
 
         <div class="form-group">
@@ -95,7 +112,7 @@
         <!-- Atras Button -->
         <a href="/admin/docentes/"><button class="btn btn-danger">Atras</button></a>
     </div>
-    <form action="/admin/docentes/agregar" method="post" class="holder">
+    <form action="/admin/docentes/agregar" method="post" class="holder" enctype="multipart/form-data">
 
         <div class="inputs">
             <div class="form-group">
@@ -145,6 +162,11 @@
                 <label for="horario" class="control-label">Horario</label>
                 <input type="text" class="form-control" id="horario" name="horario" placeholder="XX:XX - XX:XX" />
             </div>
+            <div class="form-group">
+                <!-- Foto-->
+                <label for="foto" class="control-label">Foto</label>
+            <input type="file" class="form-control" id="foto" name="foto" />
+        </div>
         </div>
 
         <div class="form-group">
