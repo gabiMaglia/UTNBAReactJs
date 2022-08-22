@@ -5,7 +5,9 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 var session = require("express-session");
+
 require("dotenv").config();
+
 // var pool = require ('./models/db')
 
 var secured = async (req, res, next) => {
