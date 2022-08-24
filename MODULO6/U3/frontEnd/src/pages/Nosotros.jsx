@@ -13,7 +13,7 @@ const Nosotros = () => {
   useEffect(() => {
     const cargarDocentes = async () => {
       setLoading(true);
-      const response = await axios.get('http://192.168.0.15:3000/api/docentes');
+      const response = await axios.get('http://localhost:3000/api/docentes');
       setDocente(response.data);
       setLoading(false)
     };
