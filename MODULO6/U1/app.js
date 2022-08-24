@@ -5,10 +5,8 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 var session = require("express-session");
+
 require("dotenv").config();
-var fileUpload = require('express-fileupload');
-var cors = require ('cors')
-var apiRouter = require('./routes/api')
 
 // var pool = require ('./models/db')
 
@@ -56,11 +54,6 @@ app.use(
   })
 );
 
-app.use (fileUpload({
-  useTempFiles: true,
-  tempfileDir: '/tmp/'
-}));
-
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/admin/login", loginRouter);
@@ -70,7 +63,6 @@ app.use("/admin/docentes", secured, panelDocentesRouter);
 app.use("/admin/horarios", secured, panelHorariosRouter);
 app.use("/admin/rutinas", secured, panelRutinasRouter);
 app.use("/admin/alumnos/perfilPersonal", secured, perfilPersonalRouter);
-app.use('/api', cors(), apiRouter);
 
 // pool.query('SELECT * FROM CRANEO_DB.db_usuarios;').then(function (resultados) {
 //   var res = resultados //la query devuelve un array

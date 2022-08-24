@@ -1,9 +1,16 @@
 var express = require("express");
 var router = express.Router();
+
+const util = require("util");
+const cloudinary = require("cloudinary").v2;
+const uploader = util.promisify(cloudinary.uploader.upload);
+const destroy = util.promisify(cloudinary.uploader.destroy);
+
 var docentesModel = require("../../../models/docentesModel");
 
+
 router.get("/", async function (req, res, next) {
-  var docentes = await docentesModel.getDocentes();
+  const docentes = await docentesModel.getDocentes();
   res.render("admin/components/docentes", {
     layout: "admin/layout",
     usuario: req.session.nombre,
@@ -12,7 +19,7 @@ router.get("/", async function (req, res, next) {
 });
 
 router.get("/agregar", (req, res, next) => {
-  var docente = true;
+  const docente = true;
   res.render("admin/components/agregar", {
     layout: "admin/layout",
     usuario: req.session.nombre,
@@ -21,9 +28,9 @@ router.get("/agregar", (req, res, next) => {
 });
 
 router.get("/modificar/:id_docente", async (req, res, next) => {
-  let id = req.params.id_docente;
-  let docenteData = await docentesModel.getDocenteById(id);
-  let docente = true;
+  const id = req.params.id_docente;
+  const docenteData = await docentesModel.getDocenteById(id);
+  const docente = true;
   res.render("admin/components/modificar", {
     layout: "admin/layout",
     usuario: req.session.nombre,
@@ -33,29 +40,60 @@ router.get("/modificar/:id_docente", async (req, res, next) => {
 });
 
 router.get("/perfilPersonal/:id_docente", async (req, res, next) => {
-  let id = req.params.id_docente;
-  let docenteData = await docentesModel.getDocenteById(id);
-  let docente = true;
-  console.log(docenteData);
+  const id = req.params.id_docente;
+  const docenteData = await docentesModel.getDocenteById(id);
+  const docente = true;
+  let pic =
+  "<img src = 'https://res.cloudinary.com/atlasair/image/upload/v1661037957/craneo_black_igfvsz.png' alt={{docenteData.nombre}}  height='150' width='150'>";
+
+  if (docenteData.foto){
+    pic = cloudinary.image(docenteData.foto, {
+      width: 150,
+      height: 150,
+      alt: docenteData.nombre,
+      crop: "fill",
+    });
+
+  }
+
   res.render("admin/components/perfilPersonal", {
     layout: "admin/layout",
     usuario: req.session.nombre,
-    docenteData,
     docente,
+    docenteData,
+    pic
   });
 });
 
 router.get("/eliminar/:id_docente", async (req, res, next) => {
-  var id = req.params.id_docente;
+  const id = req.params.id_docente;
+
+  const docente = await docentesModel.getDocenteById(id);
+  if (docente.foto) {
+    await(destroy(docente.foto))
+  }
+
   await docentesModel.deleteDocenteById(id);
   res.redirect("/admin/docentes");
 });
 
 router.post("/agregar", async (req, res, next) => {
-  var docente = true;
+  const docente = true;
   try {
+    let foto = '';
+      
+      if (req.files && Object.keys(req.files).length > 0) {
+        imagen = req.files.foto;
+        foto = (await uploader(imagen.tempFilePath)).public_id
+  
+      }
+
     if (req.body.nombre != "" && req.body.dni != "") {
-      await docentesModel.insertDocente(req.body);
+      await docentesModel.insertDocente({
+        ...req.body,
+           foto
+      });
+
       console.log(req.body);
       res.redirect("/admin/docentes");
     } else {
@@ -80,8 +118,26 @@ router.post("/agregar", async (req, res, next) => {
 });
 
 router.post("/modificar", async (req, res, next) => {
-  let docente = true;
+  const docente = true;
   try {
+    let foto = req.body.img_original
+    let borrar_img_vieja = false
+    
+    if (req.body.img_delete === '1') {
+      foto = null
+      borrar_img_vieja = true
+    }else {
+      if (req.files && Object.keys(req.files).length > 0) {
+        imagen = req.files.foto
+        foto = (await uploader(imagen.tempFilePath)).public_id;
+        borrar_img_vieja = true
+      }
+    }
+    if (borrar_img_vieja && req.body.img_original) {
+      await (destroy(req.body.img_original))
+    }
+    
+
     let obj = {
       nombre: req.body.nombre,
       apellido: req.body.apellido,
@@ -93,8 +149,8 @@ router.post("/modificar", async (req, res, next) => {
       facebookAdd: req.body.facebookAdd,
 
       horario: req.body.horario,
-
-      modificado_por: req.body.modificado_por,
+      foto,
+      modificado_por: req.body.modificado_por
     };
 
     await docentesModel.modificarDocenteById(obj, req.body.id_docente);
@@ -105,8 +161,8 @@ router.post("/modificar", async (req, res, next) => {
     res.render("admin/components/modificar", {
       layout: "admin/layout",
       usuario: req.session.nombre,
-      docenteData,
       docente,
+      docenteData,
       error: true,
       message: "No se pudo modificar el registro",
     });

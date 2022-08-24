@@ -1,7 +1,7 @@
 var pool = require("./db");
 
 async function getDocentes() {
-  var query = "select * from docentes_db order by id_docente ASC";
+  var query = "select * from docentes_db order by id_docente ASC limit 3 ";
   var rows = await pool.query(query);
   return rows;
 }

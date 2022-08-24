@@ -6,7 +6,7 @@
         <!-- Atras Button -->
         <a href="/admin/alumnos/"><button class="btn btn-danger">Atras</button></a>
     </div>
-    <form action="/admin/alumnos/modificar" method="post" class="holder" enctype="multipart/form-data">
+    <form action="/admin/alumnos/modificar" method="post" class="holder">
 
 
 
@@ -56,20 +56,6 @@
         </div>
 
         <div class="form-group">
-            <!-- Facebook -->
-            <label for="FacebookAdd" class="control-label">Direccion de Facebook</label>
-            <input type="text" class="form-control" id="facebookAdd" name="facebookAdd" placeholder="/example"
-                value="{{alumnoData.facebookAdd}}" />
-        </div>
-
-        <div class="form-group">
-            <!-- Instagram -->
-            <label for="email" class="control-label">Direccion de instagram</label>
-            <input type="text" class="form-control" id="instagramAdd" name="instagramAdd" placeholder="/example"
-                value="{{alumnoData.instagramAdd}}" />
-        </div>
-
-        <div class="form-group">
             <!-- Dia de Ingreso -->
             <label for="fecha de inscripcion" class="control-label">Fecha de
                 Inscripcion</label>
@@ -81,7 +67,7 @@
             <!-- Horario -->
             <label for="horario" class="control-label">Horario</label>
             <select class="form-control" id="horario" name="horario">
-                <option value={{alumnoData.horario}}>{{alumnoData.horario}}</option>
+                <option value="">{{alumnoData.horario}}</option>
                 {{#each arrayHorarios}}
                 <option value={{this}}>{{this}}</option>
                 {{/each}}
@@ -89,25 +75,12 @@
             </select>
         </div>
 
-
         <div class="form-group">
             <!-- Observaciones -->
             <label for="observaciones" class="control-label">Observaciones</label>
             <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="Observaciones"
                 value="{{alumnoData.observaciones}}" />
         </div>
-
-        <div class="form-group">
-            <!-- Foto-->
-            <label for="foto" class="control-label">Foto</label>
-            <input type="file" class="form-control" id="foto" name="foto" />
-            <p class="mt-2 "><label for="img_delete"><input type="checkbox" name="img_delete" id="img_delete"
-                        value="1">Eliminar imagen actual?</label></p>
-                        
-            <input type="hidden" name="img_original" value="{{alumnoData.foto}}">
-
-        </div>
-
 
         <div class="form-group mt-5">
             <!-- Modificado por -->
@@ -137,7 +110,7 @@
         <!-- Atras Button -->
         <a href="/admin/docentes/"><button class="btn btn-danger">Atras</button></a>
     </div>
-    <form action="/admin/docentes/modificar" method="post" class="holder" enctype="multipart/form-data">
+    <form action="/admin/docentes/modificar" method="post" class="holder">
 
 
 
@@ -198,16 +171,6 @@
                 <input type="text" class="form-control" id="horario" name="horario" value="{{docenteData.horario}}"
                     placeholder="XX:XX - XX:XX" />
             </div>
-        </div>
-
-        <div class="form-group">
-            <!-- Foto-->
-            <label for="foto" class="control-label">Foto</label>
-            <input type="file" class="form-control" id="foto" name="foto" />
-            <p class="mt-2 "><label for="img_delete"><input type="checkbox" name="img_delete" id="img_delete"
-                        value="1">Eliminar imagen actual?</label></p>
-            <input type="hidden" name="img_original" value="{{docenteData.foto}}">
-
         </div>
 
         <div class="form-group mt-5">
