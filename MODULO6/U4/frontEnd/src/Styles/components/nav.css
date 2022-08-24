@@ -1,0 +1,217 @@
+.banner {
+  display: block;
+  margin: 0.0625rem;
+
+  padding: 0;
+}
+
+.header {
+  z-index: 2;
+  position: sticky;
+  left: 0rem;
+  top: 0rem;
+  width: 100%;
+  max-height: 5.1875rem;
+  padding: 0.625rem;
+  background: var(--blackTrans);
+}
+
+.centroheader {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.mmovil {
+  display: none;
+}
+
+.logoText {
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  display: inline-block;
+  padding: 0;
+  width: auto;
+ 
+}
+
+.mainLogo {
+  font-size: 1.9375rem;
+  font-family: "Octin College Bold";
+  letter-spacing: 0.18em; /* delicia de iluminacion */
+  text-shadow: 0 0 6.25rem var(--white);
+
+  /* Clip Background Image */
+
+  background: url(../../assets/img/Anims/animated-text-fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Animate Background Image */
+
+  -webkit-text-fill-color: transparent;
+  animation: aitf 80s linear infinite;
+
+  /* Activate hardware acceleration for smoother animations */
+
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+/* Animate Background Image */
+
+@keyframes aitf {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-shadow: 0 0 5rem rgba(255, 255, 255, 0.5);
+}
+
+.button {
+  text-shadow: 0 0 0.0625rem var(--white);
+  display: block;
+  margin-right: 0.375rem;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  padding: 0.3125rem 0.375rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.button:hover {
+  transition: 0.3s;
+  text-shadow: 0 0 0.0813rem var(--white);
+
+  color: var(--redLogo);
+}
+.active {
+  color: var(--red);
+}
+
+.socialMedia {
+  border-left: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: block;
+  text-align: left;
+  line-height: 1.875rem;
+  font-size: 1.25rem;
+  margin: 0 0.375rem;
+}
+.socialMedia:hover {
+  color: rgb(253, 172, 132);
+  text-shadow: 0 0 0.5rem var(--white);
+}
+
+.logBtn:hover{
+  cursor: pointer;
+}
+
+
+
+
+/**************************************************************/
+/***************1024p******************************************/
+/**************************************************************/
+
+@media screen and (max-width: 1024px) {
+
+}
+
+/**************************************************************/
+/***************800px******************************************/
+/**************************************************************/
+
+@media screen and (max-width: 1000px) {
+
+  .mmovil {
+    display: block;
+    font-size: 26px;
+    color: var(--white);
+  }
+  
+  .centroheader {
+    
+    position: relative;
+  }
+
+  .nav {
+    z-index: -1;
+    width: 100%;
+    margin: none;
+    text-shadow: 0 0 5rem rgba(255, 255, 255, 0.5);
+    position: absolute;
+    left: 0%;
+    top: -800%;
+    padding: 3%;
+    /* display: grid;
+    place-content:  center;
+    text-align: center; 
+    */
+    font-size: large; 
+    margin-top: 0.3vh;
+    gap: 2px;
+    background-color: var(--blackTrans);
+    transition: all 0.5s;
+  }
+  
+  .button {
+    z-index: -1;
+    width: 100%;
+    padding: 14% 6%;
+    text-shadow: 0 0 0.0625rem var(--white);
+    display: block;
+    margin-right: 0.375rem;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    padding: 0.3125rem 0.375rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+} 
+/**************************************************************/
+/***************480px******************************************/
+/**************************************************************/
+
+ @media only screen and (max-width: 800px){
+  .mainLogo {
+    font-size: 1.7375rem;
+  }
+  .mmovil {
+    margin-bottom: -9px;
+    font-size: 24px;
+    
+  }
+
+  .nav{
+    margin-top: 0.8vh;
+    font-size: medium;
+  }
+} 
+
+@media only screen and (max-width: 420px){
+  .mainLogo {
+    font-size: 1.3375rem;
+  }
+
+  .nav{
+    font-size: small;
+  }
+  .mmovil {
+    margin-bottom: -9px;
+    font-size: 20px;
+    
+  }
+} 

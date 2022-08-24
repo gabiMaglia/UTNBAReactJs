@@ -1,0 +1,88 @@
+.mainQueHacemos{
+    width: 100%;
+    min-height: 50rem;   
+    height: 100%;
+    /* margin: 0 auto; */
+    font-family: "Octin College Bold";
+}
+
+.listaActividades{
+    
+    padding: 0 0 1.875rem 0;
+    width: 100%;
+    display: flex;
+    place-content: center;
+    flex-wrap: wrap;
+    
+}
+
+
+
+.titActividades{
+    margin-top: 2.5rem;
+    margin-bottom: 7.8125rem;
+    color: var(--white);
+    text-align: center;
+    
+}
+
+
+.actividades{
+    width: 320px;
+    padding: 2%;   
+}
+
+.actividades:hover figure {
+    opacity: 1;
+}
+
+.actividades figure{
+    opacity: 0.8;
+    width: 90%;
+    height: 80%;
+    display: block;
+    background: var(--redLogo);
+    border-radius: 100%;
+    padding: 25%;
+    margin: auto;
+}
+
+.actividades figure img {
+    width: 100%;
+    height: auto;
+    
+}
+
+.actividades h3 {
+    margin-top: 13%;
+    text-align: center;
+    color: var(--white);
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+
+}
+
+
+@media screen and (max-width: 800px) {
+    .listaActividades{
+        display: flex;
+        place-content: center;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+  }
+  
+  @media screen and (max-width: 500px) {
+    .actividades{
+        width: 280px;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    .actividades{
+        width: 250px;
+    }
+  }

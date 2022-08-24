@@ -1,0 +1,61 @@
+.frases {
+  padding-top: 1.875rem;
+  width: 100vw;
+  min-height: 38rem;
+  /* height: 100%; */
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.say1 {
+text-align: center;
+margin-top: -20rem;
+}
+.say2 {
+  margin-top: 12.5rem;
+  text-align: left;
+}
+
+.say3 {
+  margin-top: -5rem;
+  text-align: right;
+}
+
+.frases section {
+  width: 100%;
+}
+
+h2 span {
+  font-size: 28px;
+  font-family: "Octin College Bold";
+  letter-spacing: 0.18em; /* delicia de iluminacion */
+  text-shadow: 0 0 6.25rem var(--white);
+
+  transition: 2s;
+
+  /* Activate hardware acceleration for smoother animations */
+
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+
+
+@media screen and (max-width: 800px) {
+  .say1 {
+    text-align: center;
+    margin-top: -20rem;
+    }
+    .say2 {
+      margin-top: 12.5rem;
+      text-align: center;
+    }
+    
+    .say3 {
+      margin-top: -5rem;
+      text-align: center;
+    }
+} 
