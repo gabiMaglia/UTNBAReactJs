@@ -1,0 +1,16 @@
+.homePage {
+  width: 100%;
+  background-color: var(--black);
+  height: 49rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainLogo {
+  width: 100%;
+  max-width: 32rem;
+  margin-top: -100px;
+}
+
+

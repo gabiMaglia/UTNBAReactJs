@@ -77,47 +77,6 @@ export default Nosotros;
 
 
 
-// nuestroStaff.map((items, index) => (
-            //   <div className="card" key={index}>
-            //     <div className="cont">
-            //       <figure className="imgStaff">
-            //         <div className="title">
-            //           <div className="text">
-            //             <h2>{items.nombre} </h2>
-            //             <p>{items.rol}</p>
-            //           </div>
-            //           {/* <img src={craneo} alt="craneo" className="craneo" /> */}
-            //         </div>
-
-            //         <div className="mainbox">
-            //           <div className="cc">
-            //             <img
-            //               src={items.img}
-            //               alt={items.nombre}
-            //               className="picture"
-            //             />
-            //             <div className="socialStuff">
-            //               <a
-            //                 href={items.facebook}
-            //                 target="_blank"
-            //                 rel="noopener noreferrer"
-            //               >
-            //                 <i className="icon-facebook"></i>
-            //               </a>
-            //               <a
-            //                 href={items.instagram}
-            //                 target="_blank"
-            //                 rel="noopener noreferrer"
-            //               >
-            //                 <i className="icon-instagram"></i>
-            //               </a>
-            //             </div>
-            //           </div>
-            //         </div>
-            //       </figure>
-            //     </div>
-            //   </div>
-            // ))
             
 
 

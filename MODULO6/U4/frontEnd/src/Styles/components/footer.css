@@ -1,0 +1,177 @@
+.footer {
+  padding-bottom: 1rem;
+  min-height: 24rem;
+  width: 100%;
+  bottom: 0;
+  background-color: brown;
+  margin: auto;
+}
+
+.mapa {
+  border: none;
+  opacity: 0.9;
+}
+
+.mapa:hover {
+  opacity: 1;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  gap: 2rem;
+}
+
+.footerImg {
+  align-self:flex-end;
+  max-width: 12rem;
+  height: 9rem;
+  opacity: 0.6;
+}
+
+.footerImg:hover {
+  opacity: 0.8;
+
+}
+
+.info {
+  display: flex;
+  align-self: flex-end;
+  width: auto;
+}
+
+.horarios h3 {
+  color: var(--white);
+}
+
+.horarios h2 {
+  color: var(--blackTrans);
+}
+
+.horarios p {
+  transition: 0.1s ease all;
+  color: var(--grisOscuro);
+}
+
+.horarios p:hover {
+  color: var(--white);
+}
+
+
+.copy{
+  place-self: flex-end;
+  font-size: 15px;
+  }
+
+.form {
+  flex: 1 1 auto;
+  opacity: 0.9;
+  
+  min-width: none;
+  display: flex;
+  
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  /* position: relative; */
+}
+.formulario h2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: var(--black)
+}
+
+.formulario p {
+  min-width: 210px;
+  position: relative; 
+  margin-top: 1rem;
+}
+
+.formulario label {
+  color: var(--white);
+  position: absolute;
+  top: 0;
+  left: 0.3125rem;
+  top: 0.625rem;
+  transition: 0.5s ease-in-out all;
+  -moz-transition: all 0.5s ease-in-out;
+  pointer-events: none;  
+}
+
+.formulario p input:focus~label,
+.formulario p input:valid~label {
+  top: -0.8125rem;
+  font-size: 0.75rem;
+}
+
+
+
+
+.formulario input[type="submit"] {
+  margin-top: 8%;
+  background: var(--black);
+  color: white;
+  cursor: initial;
+
+}
+
+.formulario p input,
+.formulario p textarea {
+  width: 100%;
+  font-size: 0.875rem;
+  background: none;
+  padding: 10px 10px 10px 5px;
+  border: none;
+  border-bottom: 1px solid var(--gris) ;
+}
+
+
+.formulario p textarea {
+  resize: none;
+  outline: none;
+  border: 1px solid var(--gris);  
+}
+
+.formulario p input:focus {
+  outline: none;
+  
+}
+
+
+@media screen and (max-width: 800px) {  
+  .content {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    
+  }
+
+  .footerImg {
+    justify-self:center;
+    margin-top: 3px;
+    
+  }
+
+
+  .info {
+  justify-self: center; 
+  margin-top: 10px;
+  margin-bottom: -14px;
+
+  }
+
+  .copy{
+    margin-bottom: -10px;
+  }
+} 
+
+@media screen and (max-width: 420px) {
+  
+
+
+}

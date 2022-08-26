@@ -2,6 +2,7 @@ const expreess = require("express");
 const router = expreess.Router();
 const docentesModel = require("./../models/docentesModel");
 const cloudinary = require("cloudinary").v2;
+const nodemailer = require('nodemailer');
 
 router.get("/docentes", async function (req, res, next) {
   let docentes = await docentesModel.getDocentes();
@@ -27,5 +28,7 @@ router.get("/docentes", async function (req, res, next) {
   
   res.json(docentes);
 });
+
+
 
 module.exports = router;
