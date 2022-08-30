@@ -1,0 +1,14 @@
+.cabecera {
+    width: 100%;
+    margin-top: -10%;
+    height: 34.375rem;
+    background: url(../../assets/img/Cabeceras/cab3.jpeg);
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+.redSpark{
+    width: 100%;
+    margin-top: -6%;
+}
+

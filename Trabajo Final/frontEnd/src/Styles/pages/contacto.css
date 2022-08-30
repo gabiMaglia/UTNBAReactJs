@@ -1,0 +1,94 @@
+.mainContacto {
+  min-height: 70rem;
+  height: 100%;
+}
+
+.tituloContacto {
+  height: 20rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.title-box {
+  display: flex;
+  flex-direction: column;
+}
+.logoContacto {
+  width: 20rem;
+  height: 20rem;
+  margin: 0 auto;
+}
+
+.title-box figcaption {
+  font-family: "Octin College Bold";
+  color: var(--white);
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  display: block;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.contactContainer {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--white);
+  padding: 3%;
+}
+
+.datosContacto {
+  width: 577px;
+  height: 621px;
+  margin: auto;
+  background: url("../../assets/img/etc/cuadro.png") no-repeat center;
+  padding: 130px 0 0 73px;
+}
+
+.datosContacto a {
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 14%;
+  margin-bottom: 15px;
+  color: var(--white);
+  font-family: "Octin College Bold";
+  line-height: 20px;
+  display: flex;
+}
+
+.datosContacto a i {
+  height: 60px;
+  display: block;
+  text-align: center;
+  line-height: 60px;
+  color: var(--white);
+  font-size: 24px;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 800px) {
+
+  .datosContacto {
+    margin: auto;
+    background: url("../../assets/img/etc/cuadro.png") no-repeat center;
+    background-size: cover;
+    padding: 130px 0 0 63px;
+  }
+
+
+}
+
+@media screen and (max-width: 520px) {
+
+  .datosContacto {
+    background: url("../../assets/img/etc/cuadro2.png") no-repeat center;
+    padding: 130px 0 0 13px;
+  }
+
+
+}
