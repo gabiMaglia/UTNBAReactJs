@@ -23,6 +23,17 @@ async function insertAlumno(obj) {
   }
 }
 
+async function insertAlumnoUser(obj) {
+  try {
+    const query = "insert into usuarios_db set ?";
+    const rows = await pool.query(query, [obj]);
+    return rows;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
 async function modificarAlumnoById(obj, id) {
   try {
     const query = "update alumnos_db set ? where id_alumno = ?";
@@ -39,10 +50,18 @@ async function deleteAlumnoById(id) {
   return rows;
 }
 
+async function deleteAlumnoUserByDni(dni) {
+  const query = "delete from usuarios_db where dni = ?";
+  const rows = await pool.query(query, [dni]);
+  return rows;
+}
+
 module.exports = {
   getAlumnos,
   getAlumnosById,
   insertAlumno,
+  insertAlumnoUser,
   deleteAlumnoById,
+  deleteAlumnoUserByDni,
   modificarAlumnoById,
 };

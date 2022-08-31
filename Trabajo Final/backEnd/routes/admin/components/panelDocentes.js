@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+var md5 = require("md5");
 
 const util = require("util");
 const cloudinary = require("cloudinary").v2;
@@ -72,7 +73,7 @@ router.get("/eliminar/:id_docente", async (req, res, next) => {
   if (docente.foto) {
     await(destroy(docente.foto))
   }
-
+  await docentesModel.deleteDocenteUserByDni(docente.dni);
   await docentesModel.deleteDocenteById(id);
   res.redirect("/admin/docentes");
 });
@@ -80,12 +81,11 @@ router.get("/eliminar/:id_docente", async (req, res, next) => {
 router.post("/agregar", async (req, res, next) => {
   const docente = true;
   try {
+    
     let foto = '';
-      
       if (req.files && Object.keys(req.files).length > 0) {
         imagen = req.files.foto;
         foto = (await uploader(imagen.tempFilePath)).public_id
-  
       }
 
     if (req.body.nombre != "" && req.body.dni != "") {
@@ -93,8 +93,16 @@ router.post("/agregar", async (req, res, next) => {
         ...req.body,
            foto
       });
+      // Esto agregara tambien el usuario de ingreso para el usuario en cuestion
+      let obj = {
+        dni: req.body.dni ,
+        usuario: req.body.dni,
+        password: md5(req.body.dni), 
+        permiso: req.body.permiso
+      }
+      await docentesModel.insertDocenteUser(obj)
+      // Fin
 
-      console.log(req.body);
       res.redirect("/admin/docentes");
     } else {
       res.render("admin/components/agregar", {
@@ -148,13 +156,15 @@ router.post("/modificar", async (req, res, next) => {
       email: req.body.email,
       instagramAdd: req.body.instagramAdd,
       facebookAdd: req.body.facebookAdd,
-
+      permiso: req.body.permiso,
       horario: req.body.horario,
       foto,
       modificado_por: req.body.modificado_por
     };
 
     await docentesModel.modificarDocenteById(obj, req.body.id_docente);
+    await docentesModel.modificarDocenteUserByDni(req.body.permiso, req.body.dni, )
+   
     res.redirect("/admin/docentes");
   } catch (error) {
     console.log(error);

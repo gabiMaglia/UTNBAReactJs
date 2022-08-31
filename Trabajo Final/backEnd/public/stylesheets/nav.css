@@ -1,15 +1,15 @@
 .header {
-  position: sticky;
   grid-area: header;
+  position: sticky;
   margin-bottom: 2rem;
   left: 0px;
   top: 0px;
   width: 100vw;
   min-height: 10vh;
-  padding: 10px;
-  background: var(--blackTrans);
+  padding: 5px;
+  background: var(--black);
   z-index: 1;
-  /* border-bottom: 1px solid var(--redLogo); */
+  border-bottom: 1px solid var(--redLogo);
 }
 
 .banner {
@@ -18,13 +18,9 @@
 .centroheader {
   padding-top: 20px;
 }
-.mmovil {
-  display: none;
-}
 
 .logoText {
   text-transform: uppercase;
-
   display: inline-block;
 }
 
@@ -127,3 +123,33 @@
 
 
 } */
+
+
+@media screen and (max-width: 680px) {
+  .nav {
+    justify-content: center;
+  }
+
+  .banner {
+    margin-bottom: 2rem;
+  }
+  .buttons {
+    margin-bottom: 1rem;
+  }
+  .button {
+    font-size: 14px !important;
+  }
+}
+/**************************************************************/
+/***************480px******************************************/
+/**************************************************************/
+
+@media only screen and (max-width: 480px) {
+  .button {
+    font-size: 12px !important;
+  }
+
+  .mainLogo {
+    font-size: 26px;
+  }
+}

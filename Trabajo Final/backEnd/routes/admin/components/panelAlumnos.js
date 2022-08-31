@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+var md5 = require("md5");
 
 const util = require("util");
 const cloudinary = require("cloudinary").v2;
@@ -8,6 +9,16 @@ const destroy = util.promisify(cloudinary.uploader.destroy);
 
 const alumnosModel = require("../../../models/alumnosModel");
 const horariosModel = require("../../../models/horariosModel");
+
+const mostrarHorarios = (horarios) => {
+  let arrayHorarios = [];
+  for (const horario in horarios) {
+    arrayHorarios.push(
+      horarios[horario].dias_dbcol + horarios[horario].horarios_dbcol
+    );
+  }
+  return arrayHorarios;
+};
 
 router.get("/", async (req, res, next) => {
   const alumnos = await alumnosModel.getAlumnos();
@@ -20,13 +31,8 @@ router.get("/", async (req, res, next) => {
 
 router.get("/agregar", async (req, res, next) => {
   const horarios = await horariosModel.getHorarios();
-  let arrayHorarios = [];
   const alumno = true;
-  for (const horario in horarios) {
-    arrayHorarios.push(
-      horarios[horario].dias_dbcol + horarios[horario].horarios_dbcol
-    );
-  }
+  arrayHorarios = mostrarHorarios(horarios);
 
   res.render("admin/components/agregar", {
     layout: "admin/layout",
@@ -42,13 +48,7 @@ router.get("/modificar/:id_alumno", async (req, res, next) => {
   const alumno = true;
 
   const horarios = await horariosModel.getHorarios();
-  let arrayHorarios = [];
-
-  for (const horario in horarios) {
-    arrayHorarios.push(
-      horarios[horario].dias_dbcol + "/" + horarios[horario].horarios_dbcol
-    );
-  }
+  arrayHorarios = mostrarHorarios(horarios);
 
   res.render("admin/components/modificar", {
     layout: "admin/layout",
@@ -64,10 +64,10 @@ router.get("/eliminar/:id_alumno", async (req, res, next) => {
 
   const alumno = await alumnosModel.getAlumnosById(id);
   if (alumno.foto) {
-    await(destroy(alumno.foto))
+    await destroy(alumno.foto);
   }
-  
 
+  await alumnosModel.deleteAlumnoUserByDni(alumno.dni);
   await alumnosModel.deleteAlumnoById(id);
   res.redirect("/admin/alumnos");
 });
@@ -85,7 +85,7 @@ router.get("/perfilPersonal/:id_alumno", async (req, res, next) => {
       alt: alumnoData.nombre,
       crop: "fill",
     });
-  };
+  }
   res.render("admin/components/perfilPersonal", {
     layout: "admin/layout",
     usuario: req.session.nombre,
@@ -109,6 +109,14 @@ router.post("/agregar", async (req, res, next) => {
       req.body.fecha_inscripcion != "" &&
       req.body.dni != ""
     ) {
+      let obj = {
+        dni: req.body.dni,
+        usuario: req.body.dni,
+        password: md5(req.body.dni),
+        permisos: "alumno",
+      };
+      await alumnosModel.insertAlumnoUser(obj);
+
       await alumnosModel.insertAlumno({
         ...req.body,
         foto,
@@ -116,9 +124,13 @@ router.post("/agregar", async (req, res, next) => {
 
       res.redirect("/admin/alumnos");
     } else {
+      const horarios = await horariosModel.getHorarios();
+      arrayHorarios = mostrarHorarios(horarios);
+
       res.render("admin/components/agregar", {
         layout: "admin/layout",
         usuario: req.session.nombre,
+        arrayHorarios,
         alumno,
         error: true,
         message: "Completa todos los campos obligatorios",
@@ -129,6 +141,7 @@ router.post("/agregar", async (req, res, next) => {
     res.render("admin/components/agregar", {
       layout: "admin/layout",
       usuario: req.session.nombre,
+      arrayHorarios,
       alumno,
       error: true,
       message: "No se pudo cargar el registro",
@@ -139,24 +152,22 @@ router.post("/agregar", async (req, res, next) => {
 router.post("/modificar", async (req, res, next) => {
   const alumno = true;
   try {
-
     // manejo de imagenes
-    let foto = req.body.img_original
-    let borrar_img_vieja = false
-    
-    
-    if (req.body.img_delete === '1') {
-      foto = null
-      borrar_img_vieja = true
-    }else {
+    let foto = req.body.img_original;
+    let borrar_img_vieja = false;
+
+    if (req.body.img_delete === "1") {
+      foto = null;
+      borrar_img_vieja = true;
+    } else {
       if (req.files && Object.keys(req.files).length > 0) {
-        imagen = req.files.foto
+        imagen = req.files.foto;
         foto = (await uploader(imagen.tempFilePath)).public_id;
-        borrar_img_vieja = true
+        borrar_img_vieja = true;
       }
     }
     if (borrar_img_vieja && req.body.img_original) {
-      await (destroy(req.body.img_original))
+      await destroy(req.body.img_original);
     }
 
     // fin de manejo de imagenes
@@ -176,7 +187,7 @@ router.post("/modificar", async (req, res, next) => {
       observaciones: req.body.observaciones,
       modificado_por: req.body.modificado_por,
     };
-    
+
     await alumnosModel.modificarAlumnoById(obj, req.body.alumno_id);
     res.redirect("/admin/alumnos");
   } catch (error) {

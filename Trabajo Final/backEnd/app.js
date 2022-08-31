@@ -10,8 +10,8 @@ const fileUpload = require("express-fileupload");
 const cors = require("cors");
 const apiRouter = require("./routes/api");
 
-// var pool = require ('./models/db')
-
+// middlewares
+//acceso docente
 const secured = async (req, res, next) => {
   try {
     if (req.session.id_usuario) {
@@ -23,17 +23,30 @@ const secured = async (req, res, next) => {
     console.log(error);
   }
 };
-
+//acceso solo admin
+const adminSecured = async (req, res, next) => {
+  try {
+    if (req.session.permiso == "admin") {
+      next();
+    } else {
+      res.redirect("/admin/panelPrincipal");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+//fin middlewares
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const loginRouter = require("./routes/admin/login");
-const panelPrincipalRouter = require("./routes/admin/panelPrincipal");
+const proximamenteRouter = require("./routes/proximamente");
+const panelPrincipalRouter = require("./routes/admin/components/panelPrincipal");
+const panelUsuariosRouter = require("./routes/admin/components/panelUsuario");
 const panelAlumnosRouter = require("./routes/admin/components/panelAlumnos");
 const panelDocentesRouter = require("./routes/admin/components/panelDocentes");
 const panelHorariosRouter = require("./routes/admin/components/panelHorarios");
 const panelRutinasRouter = require("./routes/admin/components/panelRutinas");
 const perfilPersonalRouter = require("./routes/admin/components/perfilPersonal");
-
 const app = express();
 
 // view engine setup
@@ -66,14 +79,15 @@ app.use(
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/admin/login", loginRouter);
+app.use("/admin/proximamente", secured, proximamenteRouter);
 app.use("/admin/panelPrincipal", secured, panelPrincipalRouter);
+app.use("/admin/panelUsuario", secured, panelUsuariosRouter);
 app.use("/admin/alumnos", secured, panelAlumnosRouter);
-app.use("/admin/docentes", secured, panelDocentesRouter);
+app.use("/admin/docentes", secured, adminSecured, panelDocentesRouter);
 app.use("/admin/horarios", secured, panelHorariosRouter);
 app.use("/admin/rutinas", secured, panelRutinasRouter);
 app.use("/admin/alumnos/perfilPersonal", secured, perfilPersonalRouter);
 app.use("/api", cors(), apiRouter);
-
 
 app.get("/admin/login", function (req, res) {
   var conocido = Boolean(req.session.nombre);
@@ -83,6 +97,8 @@ app.get("/admin/login", function (req, res) {
     title: "Panel de administracion",
     conocido: conocido,
     nombre: req.session.nombre,
+    id: req.session.id_usuario,
+    permiso: req.session.permiso,
   });
 });
 app.post("/ingresar", function (req, res) {
